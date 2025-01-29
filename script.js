@@ -6,8 +6,13 @@ function Book(title, author, genre, year) {
     author = this.author;
     genre = this.genre;
     year = this. year;
-
+    this.read = false;
   }
+
+  //prototype method to toggle the read status
+  Book.prototype.toggleReadStatus = function() {
+    this.read = !this.read;  // toggle the read status (true <-> false)
+  };
   
 function addBookToLibrary(title, author, genre, year) {
   let newBook = new Book(title, author, genre, year);
@@ -16,7 +21,7 @@ function addBookToLibrary(title, author, genre, year) {
 }
 
 function removeBook(index) {
-    bookArray.splice(index, 1);
+    myLibrary.splice(index, 1);
     displayBooks(); 
   }
 
@@ -25,7 +30,7 @@ function displayBooks() {
     const tableBody = document.querySelector("#book-table tbody");
     tableBody.innerHTML = '';  // Clear previous content
 
-    bookArray.forEach(book => {
+    myLibrary.forEach(book => {
       const row = document.createElement('tr');
       
       const titleCell = document.createElement('td');
@@ -44,19 +49,34 @@ function displayBooks() {
       yearCell.textContent = book.year;
       row.appendChild(yearCell);
 
-       // remove button for each book
-       const actionCell = document.createElement('td');
-       const removeBtn = document.createElement('button');
-       removeBtn.textContent = 'Remove';
-       removeBtn.classList.add('remove-btn');
-       
-       // event listener to remove the book when clicked
-       removeBtn.addEventListener('click', function() {
-         removeBook(index); // Remove book at this index
-       });
+      const readStatusCell = document.createElement('td');
+      readStatusCell.textContent = book.read ? 'Read' : 'Unread';  // Display the read status
+      row.appendChild(readStatusCell);
 
-       actionCell.appendChild(removeBtn);
-       row.appendChild(actionCell);
+      // remove button for each book
+      const actionCell = document.createElement('td');
+      
+      //read Status button
+      const toggleReadBtn = document.createElement('button');
+      toggleReadBtn.textContent = book.read ? 'Mark Unread' : 'Mark Read';
+      toggleReadBtn.classList.add('toggle-read-btn');
+      toggleReadBtn.addEventListener('click', function() {
+        book.toggleReadStatus(); 
+        displayBooks();  
+      });
+
+      //remove button
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.classList.add('remove-btn');
+      removeBtn.addEventListener('click', function() {
+        removeBook(index); // Remove book at this index
+      });
+
+      // append buttons to the action cell
+      actionCell.appendChild(toggleReadBtn);
+      actionCell.appendChild(removeBtn);
+      row.appendChild(actionCell);
       
       tableBody.appendChild(row);
     });
