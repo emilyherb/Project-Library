@@ -30,7 +30,7 @@ function displayBooks() {
     const tableBody = document.querySelector("#book-table tbody");
     tableBody.innerHTML = '';  // Clear previous content
 
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
       const row = document.createElement('tr');
       
       const titleCell = document.createElement('td');
@@ -56,7 +56,7 @@ function displayBooks() {
       // remove button for each book
       const actionCell = document.createElement('td');
       
-      //read Status button
+      //read status button
       const toggleReadBtn = document.createElement('button');
       toggleReadBtn.textContent = book.read ? 'Mark Unread' : 'Mark Read';
       toggleReadBtn.classList.add('toggle-read-btn');
@@ -70,7 +70,8 @@ function displayBooks() {
       removeBtn.textContent = 'Remove';
       removeBtn.classList.add('remove-btn');
       removeBtn.addEventListener('click', function() {
-        removeBook(index); // Remove book at this index
+        const index = myLibrary.indexOf(book);
+        removeBook(index); // remove book at this index
       });
 
       // append buttons to the action cell
