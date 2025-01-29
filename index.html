@@ -12,7 +12,22 @@
     <script src="script.js"></script>
   <h1>Library</h1>
 
-  <!-- Table to display books -->
+  <!-- add a book -->
+  <button id="new-book-btn">Add A Book</button>
+  <div id="book-form">
+    <h2>Add a New Book</h2>
+    <form id="add-book-form">
+      <input type="text" id="book-title" placeholder="Title" required>
+      <input type="text" id="book-author" placeholder="Author" required>
+      <input type="text" id="book-genre" placeholder="Genre" required>
+      <input type="number" id="book-year" placeholder="Year" required>
+      <button type="submit">Add Book</button>
+      <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+    </form>
+  </div>
+  
+
+  <!-- table to display books -->
   <table id="book-table">
     <thead>
       <tr>
@@ -23,9 +38,10 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Book rows will be inserted here -->
+      <!-- book rows will be inserted here -->
     </tbody>
   </table>
+
 
 </body>
 </html>

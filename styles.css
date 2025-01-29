@@ -10,3 +10,45 @@ table {
   th {
     background-color: #f2f2f2;
   }
+
+/*book input*/
+  #book-form {
+    margin-top: 20px;
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  #book-form input {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+  }
+  #book-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  #book-form button:hover {
+    background-color: #45a049;
+  }
+  #book-form .cancel-btn {
+    background-color: #f44336;
+  }
+  #book-form .cancel-btn:hover {
+    background-color: #e53935;
+  }
+  
+/*remove button*/
+  .remove-btn {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .remove-btn:hover {
+    background-color: #e53935;
+  }
