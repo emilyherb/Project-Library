@@ -2,10 +2,10 @@ const myLibrary = [];
 
 //constructor
 function Book(title, author, genre, year) {
-    title = this.title;
-    author = this.author;
-    genre = this.genre;
-    year = this. year;
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.year = year;
     this.read = false;
   }
 
@@ -96,7 +96,7 @@ function displayBooks() {
     const year = document.getElementById('book-year').value;
 
     // add the new book to the array
-    addBookToArray(title, author, genre, year);
+    addBookToLibrary(title, author, genre, year);
 
     // clear the form
     document.getElementById('add-book-form').reset();
