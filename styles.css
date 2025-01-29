@@ -1,3 +1,7 @@
+h1,#book-form,#book-table{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -40,8 +44,8 @@ table {
   #book-form .cancel-btn:hover {
     background-color: #e53935;
   }
-  
-/*remove button*/
+
+/*buttons*/
   .remove-btn {
     padding: 5px 10px;
     background-color: #f44336;
@@ -51,4 +55,27 @@ table {
   }
   .remove-btn:hover {
     background-color: #e53935;
+  }
+
+  .toggle-read-btn{
+    padding: 5px 10px;
+    background-color: #3646f4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right:5px;
+  }
+  .toggle-read-btn:hover{
+    background-color: #2a37c4;
+  }
+  #new-book-btn{
+    padding: 5px 10px;
+    background-color: #77777c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom:5px;
+  }
+  #new-book-btn:hover{
+    background-color: #5a5a5f;
   }
